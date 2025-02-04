@@ -125,6 +125,7 @@ function createPoster(imageURL, title, quote) {
 }
 
 function updatePoster(posterParams) {
+  currentPoster = posterParams
   posterImage.src = posterParams.imageURL
   posterTitle.innerText = posterParams.title
   posterQuote.innerText = posterParams.quote
