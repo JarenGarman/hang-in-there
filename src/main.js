@@ -143,3 +143,8 @@ function randomPoster() {
   const quote = quotes[getRandomIndex(quotes)]
   return createPoster(imageURL, title, quote)
 }
+
+function switchPage(currentPage, nextPage) {
+  // currentPage.hide
+  // nextPage.unhide
+}
