@@ -104,10 +104,13 @@ let quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 let savedPosters = [];
-let currentPoster = randomPoster();
-updatePoster(currentPoster)
+let currentPoster;
+updatePoster(randomPoster())
 
 // event listeners go here 👇
+showRandomButton.addEventListener("click", function () {
+  updatePoster(randomPoster())
+})
 
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
