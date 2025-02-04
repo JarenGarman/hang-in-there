@@ -1,8 +1,12 @@
 // query selector variables go here 👇
+let posterImage = document.querySelector('.poster-img')
+let posterTitle = document.querySelector('.poster-title')
+let posterQuote = document.querySelector('.poster-quote')
+let showRandomButton = document.querySelector('.show-random')
 
 // we've provided you with some data to work with 👇
 // tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
-var images = [
+let images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
   "./assets/butterfly.jpg",
@@ -22,7 +26,7 @@ var images = [
   "./assets/tiger.jpg",
   "./assets/turtle.jpg"
 ];
-var titles = [
+let titles = [
   "determination",
   "success",
   "inspiration",
@@ -59,7 +63,7 @@ var titles = [
   "understanding",
   "wisdom"
 ];
-var quotes = [
+let quotes = [
   "Don’t downgrade your dream just to fit your reality, upgrade your conviction to match your destiny.",
   "You are braver than you believe, stronger than you seem and smarter than you think.",
   "You are confined only by the walls you build yourself.",
@@ -99,10 +103,14 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-var savedPosters = [];
-var currentPoster;
+let savedPosters = [];
+let currentPoster;
+updatePoster(randomPoster())
 
 // event listeners go here 👇
+showRandomButton.addEventListener("click", function () {
+  updatePoster(randomPoster())
+})
 
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
@@ -112,8 +120,23 @@ function getRandomIndex(array) {
 
 function createPoster(imageURL, title, quote) {
   return {
-    id: Date.now(), 
-    imageURL: imageURL, 
-    title: title, 
-    quote: quote}
+    id: Date.now(),
+    imageURL,
+    title,
+    quote
+  }
+}
+
+function updatePoster(posterParams) {
+  currentPoster = posterParams
+  posterImage.src = posterParams.imageURL
+  posterTitle.innerText = posterParams.title
+  posterQuote.innerText = posterParams.quote
+}
+
+function randomPoster() {
+  const imageURL = images[getRandomIndex(images)]
+  const title = titles[getRandomIndex(titles)]
+  const quote = quotes[getRandomIndex(quotes)]
+  return createPoster(imageURL, title, quote)
 }
