@@ -119,6 +119,22 @@ showRandomButton.addEventListener("click", function () {
   updatePoster(randomPoster())
 })
 
+showSavedButton.addEventListener("click", function () {
+  switchPage(mainPosterPage, savedPostersPage)
+})
+
+showFormButton.addEventListener("click", function () {
+  switchPage(mainPosterPage, posterFormPage)
+})
+
+backToMainButton.addEventListener("click", function () {
+  switchPage(savedPostersPage, mainPosterPage)
+})
+
+showMain.addEventListener("click", function () {
+  switchPage(posterFormPage, mainPosterPage)
+})
+
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
 function getRandomIndex(array) {
