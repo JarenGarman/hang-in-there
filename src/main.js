@@ -2,6 +2,7 @@
 let posterImage = document.querySelector('.poster-img')
 let posterTitle = document.querySelector('.poster-title')
 let posterQuote = document.querySelector('.poster-quote')
+let showRandomButton = document.querySelector('.show-random')
 
 // we've provided you with some data to work with 👇
 // tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
