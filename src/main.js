@@ -133,6 +133,5 @@ function randomPoster() {
   const imageURL = images[getRandomIndex(images)]
   const title = titles[getRandomIndex(titles)]
   const quote = quotes[getRandomIndex(quotes)]
-  console.log('imageURL: ', imageURL)
   return createPoster(imageURL, title, quote)
 }
