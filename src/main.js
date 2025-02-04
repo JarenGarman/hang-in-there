@@ -115,23 +115,23 @@ let currentPoster;
 updatePoster(randomPoster())
 
 // event listeners go here 👇
-showRandomButton.addEventListener("click", function () {
+showRandomButton.addEventListener('click', function () {
   updatePoster(randomPoster())
 })
 
-showSavedButton.addEventListener("click", function () {
+showSavedButton.addEventListener('click', function () {
   switchPage(mainPosterPage, savedPostersPage)
 })
 
-showFormButton.addEventListener("click", function () {
+showFormButton.addEventListener('click', function () {
   switchPage(mainPosterPage, posterFormPage)
 })
 
-backToMainButton.addEventListener("click", function () {
+backToMainButton.addEventListener('click', function () {
   switchPage(savedPostersPage, mainPosterPage)
 })
 
-showMain.addEventListener("click", function () {
+showMain.addEventListener('click', function () {
   switchPage(posterFormPage, mainPosterPage)
 })
 
