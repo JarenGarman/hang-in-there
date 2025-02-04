@@ -165,6 +165,6 @@ function randomPoster() {
 }
 
 function switchPage(currentPage, nextPage) {
-  // currentPage.hide
-  // nextPage.unhide
+  currentPage.classList.add('hidden')
+  nextPage.classList.remove('hidden')
 }
