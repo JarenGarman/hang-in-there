@@ -1,15 +1,15 @@
 // query selector variables go here 👇
-let posterImage = document.querySelector('.poster-img')
-let posterTitle = document.querySelector('.poster-title')
-let posterQuote = document.querySelector('.poster-quote')
-let showRandomButton = document.querySelector('.show-random')
-let showSavedButton = document.querySelector('.show-saved')
-let showFormButton = document.querySelector('.show-form')
-let backToMainButton = document.querySelector('.back-to-main')
-let showMain = document.querySelector('.show-main')
-let mainPosterPage = document.querySelector('.main-poster')
-let posterFormPage = document.querySelector('.poster-form')
-let savedPostersPage = document.querySelector('.saved-posters')
+const posterImage = document.querySelector('.poster-img')
+const posterTitle = document.querySelector('.poster-title')
+const posterQuote = document.querySelector('.poster-quote')
+const showRandomButton = document.querySelector('.show-random')
+const showSavedButton = document.querySelector('.show-saved')
+const showFormButton = document.querySelector('.show-form')
+const backToMainButton = document.querySelector('.back-to-main')
+const showMain = document.querySelector('.show-main')
+const mainPosterPage = document.querySelector('.main-poster')
+const posterFormPage = document.querySelector('.poster-form')
+const savedPostersPage = document.querySelector('.saved-posters')
 
 // we've provided you with some data to work with 👇
 // tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
