@@ -5,7 +5,7 @@ let posterQuote = document.querySelector('.poster-quote')
 
 // we've provided you with some data to work with 👇
 // tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
-var images = [
+let images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
   "./assets/butterfly.jpg",
@@ -25,7 +25,7 @@ var images = [
   "./assets/tiger.jpg",
   "./assets/turtle.jpg"
 ];
-var titles = [
+let titles = [
   "determination",
   "success",
   "inspiration",
@@ -62,7 +62,7 @@ var titles = [
   "understanding",
   "wisdom"
 ];
-var quotes = [
+let quotes = [
   "Don’t downgrade your dream just to fit your reality, upgrade your conviction to match your destiny.",
   "You are braver than you believe, stronger than you seem and smarter than you think.",
   "You are confined only by the walls you build yourself.",
