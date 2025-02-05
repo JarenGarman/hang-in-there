@@ -120,19 +120,19 @@ showRandomButton.addEventListener('click', function () {
 })
 
 showSavedButton.addEventListener('click', function () {
-  switchPage(mainPosterPage, savedPostersPage)
+  switchPage([mainPosterPage, savedPostersPage])
 })
 
 showFormButton.addEventListener('click', function () {
-  switchPage(mainPosterPage, posterFormPage)
+  switchPage([mainPosterPage, posterFormPage])
 })
 
 backToMainButton.addEventListener('click', function () {
-  switchPage(savedPostersPage, mainPosterPage)
+  switchPage([savedPostersPage, mainPosterPage])
 })
 
 showMain.addEventListener('click', function () {
-  switchPage(posterFormPage, mainPosterPage)
+  switchPage([posterFormPage, mainPosterPage])
 })
 
 // functions and event handlers go here 👇
@@ -164,7 +164,8 @@ function randomPoster() {
   return createPoster(imageURL, title, quote)
 }
 
-function switchPage(currentPage, nextPage) {
-  currentPage.classList.add('hidden')
-  nextPage.classList.remove('hidden')
+function switchPage(pages) {
+  for (const page in pages) {
+    pages[page].classList.toggle('hidden')
+  }
 }
