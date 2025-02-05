@@ -268,6 +268,8 @@ userPosterForm.addEventListener('submit', userPoster)
 
 savePosterButton.addEventListener('click', savePoster)
 
+unmotivationalPostersGrid.addEventListener('dblclick', deletePoster)
+
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
 function getRandomIndex(array) {
