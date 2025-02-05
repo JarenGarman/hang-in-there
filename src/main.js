@@ -6,10 +6,10 @@ const showRandomButton = document.querySelector('.show-random')
 const showSavedButton = document.querySelector('.show-saved')
 const showFormButton = document.querySelector('.show-form')
 const backToMainButton = document.querySelector('.back-to-main')
-const makePosterButton = document.querySelector('.make-poster')
 const userPosterImage = document.querySelector('#poster-image-url')
 const userPosterTitle = document.querySelector('#poster-title')
 const userPosterQuote = document.querySelector('#poster-quote')
+const userPosterForm = document.querySelector('form')
 const showMain = document.querySelector('.show-main')
 const mainPosterPage = document.querySelector('.main-poster')
 const posterFormPage = document.querySelector('.poster-form')
@@ -139,7 +139,7 @@ showMain.addEventListener('click', function () {
   switchPage([posterFormPage, mainPosterPage])
 })
 
-makePosterButton.addEventListener('click', userPoster)
+userPosterForm.addEventListener('submit', userPoster)
 
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
