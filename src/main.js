@@ -244,6 +244,7 @@ let unmotivationalPosters = [
 ];
 let savedPosters = [];
 let currentPoster;
+let activeUnmotivationalPosters = cleanData()
 updatePoster(randomPoster())
 
 // event listeners go here 👇
@@ -351,9 +352,8 @@ function cleanData() {
 }
 
 function unmotivationalSetup(event) {
-  const posters = cleanData()
-  for (const poster in posters) {
-    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(posters[poster]))
+  for (const poster in activeUnmotivationalPosters) {
+    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(activeUnmotivationalPosters[poster]))
   }
   goToUnmotivational(event)
 }
