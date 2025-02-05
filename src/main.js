@@ -354,8 +354,23 @@ function cleanData() {
 }
 
 function unmotivationalSetup(event) {
-  for (const poster in activeUnmotivationalPosters) {
-    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(activeUnmotivationalPosters[poster]))
+  if (unmotivationalPostersGrid.innerHTML === '') {
+    for (const poster in activeUnmotivationalPosters) {
+      unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(activeUnmotivationalPosters[poster]))
+    }
   }
   goToUnmotivational(event)
+}
+
+function deletePoster(event) {
+  const target = event.target
+  if (!target.classList.contains('unmotivational-posters-grid')) {
+    const title = target.getElementsByTagName('h2')[0] ||= target.parentElement.getElementsByTagName('h2')[0]
+    activeUnmotivationalPosters = activeUnmotivationalPosters.filter((poster) => !poster.title === title)
+    if (target.classList.contains('mini-poster')) {
+      target.remove()
+    } else {
+      target.parentElement.remove()
+    }
+  }
 }
