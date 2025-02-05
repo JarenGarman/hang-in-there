@@ -244,6 +244,7 @@ let unmotivationalPosters = [
 ];
 let savedPosters = [];
 let currentPoster;
+let activeUnmotivationalPosters = cleanData()
 updatePoster(randomPoster())
 
 // event listeners go here 👇
@@ -266,6 +267,8 @@ unmotivationalBackButton.addEventListener('click', goToMain)
 userPosterForm.addEventListener('submit', userPoster)
 
 savePosterButton.addEventListener('click', savePoster)
+
+unmotivationalPostersGrid.addEventListener('dblclick', deletePoster)
 
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
@@ -351,9 +354,23 @@ function cleanData() {
 }
 
 function unmotivationalSetup(event) {
-  const posters = cleanData()
-  for (const poster in posters) {
-    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(posters[poster]))
+  if (unmotivationalPostersGrid.innerHTML === '') {
+    for (const poster in activeUnmotivationalPosters) {
+      unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(activeUnmotivationalPosters[poster]))
+    }
   }
   goToUnmotivational(event)
+}
+
+function deletePoster(event) {
+  const target = event.target
+  if (!target.classList.contains('unmotivational-posters-grid')) {
+    const title = target.getElementsByTagName('h2')[0] ||= target.parentElement.getElementsByTagName('h2')[0]
+    activeUnmotivationalPosters = activeUnmotivationalPosters.filter((poster) => !poster.title === title)
+    if (target.classList.contains('mini-poster')) {
+      target.remove()
+    } else {
+      target.parentElement.remove()
+    }
+  }
 }
