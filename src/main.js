@@ -19,6 +19,7 @@ const posterFormPage = document.querySelector('.poster-form')
 const unmotivationalPage = document.querySelector('.unmotivational-posters')
 const savedPostersPage = document.querySelector('.saved-posters')
 const savedPostersGrid = document.querySelector('.saved-posters-grid')
+const unmotivationalPostersGrid = document.querySelector('.unmotivational-posters-grid')
 
 // we've provided you with some data to work with 👇
 // tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
@@ -270,9 +271,7 @@ unmotivationalBackButton.addEventListener('click', function () {
   switchPage([unmotivationalPage, mainPosterPage])
 })
 
-unmotivationalButton.addEventListener('click', function () {
-  switchPage([unmotivationalPage, mainPosterPage])
-})
+unmotivationalButton.addEventListener('click', unmotivationalSetup)
 
 userPosterForm.addEventListener('submit', userPoster)
 
@@ -333,4 +332,21 @@ function savePoster() {
     </div>`
     savedPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML)
   }
+}
+
+function cleanData() {
+  return unmotivationalPosters.map((posterData) => createPoster(posterData.img_url, posterData.name, posterData.description))
+}
+
+function unmotivationalSetup() {
+  const posters = cleanData()
+  for (const poster in posters) {
+    const miniPosterHTML = `<div class="unmotivational-mini-poster", id=${posters[poster].id}>\
+    <img src="${posters[poster].imageURL}" />\
+    <h2>${posters[poster].title}</h2>\
+    <h4>${posters[poster].quote}</h4>\
+    </div>`
+    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML)
+  }
+  switchPage([unmotivationalPage, mainPosterPage])
 }
