@@ -2,6 +2,7 @@
 const posterImage = document.querySelector('.poster-img')
 const posterTitle = document.querySelector('.poster-title')
 const posterQuote = document.querySelector('.poster-quote')
+const savePosterButton = document.querySelector('.save-poster')
 const showRandomButton = document.querySelector('.show-random')
 const showSavedButton = document.querySelector('.show-saved')
 const showFormButton = document.querySelector('.show-form')
@@ -141,6 +142,8 @@ showMain.addEventListener('click', function () {
 
 userPosterForm.addEventListener('submit', userPoster)
 
+savePosterButton.addEventListener('click', savePoster)
+
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
 function getRandomIndex(array) {
@@ -184,4 +187,10 @@ function userPoster(event) {
   titles.push(userPosterTitle.value)
   quotes.push(userPosterQuote.value)
   switchPage([mainPosterPage, posterFormPage])
+}
+
+function savePoster() {
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster)
+  }
 }
