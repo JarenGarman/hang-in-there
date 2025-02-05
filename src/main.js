@@ -331,15 +331,18 @@ function userPoster(event) {
   console.log('event: ', event)
 }
 
+function miniPosterHTML(poster) {
+  return `<div class="mini-poster", id=${poster.id}>\
+    <img src="${poster.imageURL}" />\
+    <h2>${poster.title}</h2>\
+    <h4>${poster.quote}</h4>\
+    </div>`
+}
+
 function savePoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster)
-    const miniPosterHTML = `<div class="mini-poster", id=${currentPoster.id}>\
-    <img src="${currentPoster.imageURL}" />\
-    <h2>${currentPoster.title}</h2>\
-    <h4>${currentPoster.quote}</h4>\
-    </div>`
-    savedPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML)
+    savedPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(currentPoster))
   }
 }
 
@@ -350,12 +353,7 @@ function cleanData() {
 function unmotivationalSetup(event) {
   const posters = cleanData()
   for (const poster in posters) {
-    const miniPosterHTML = `<div class="unmotivational-mini-poster", id=${posters[poster].id}>\
-    <img src="${posters[poster].imageURL}" />\
-    <h2>${posters[poster].title}</h2>\
-    <h4>${posters[poster].quote}</h4>\
-    </div>`
-    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML)
+    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(posters[poster]))
   }
   goToUnmotivational(event)
 }
