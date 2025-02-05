@@ -175,3 +175,8 @@ function switchPage(pages) {
     pages[page].classList.toggle('hidden')
   }
 }
+
+function userPoster(event) {
+
+  event.preventDefault()
+}
