@@ -251,27 +251,17 @@ showRandomButton.addEventListener('click', function () {
   updatePoster(randomPoster())
 })
 
-showSavedButton.addEventListener('click', function () {
-  switchPage([mainPosterPage, savedPostersPage])
-})
+showSavedButton.addEventListener('click', goToSaved)
 
-showFormButton.addEventListener('click', function () {
-  switchPage([mainPosterPage, posterFormPage])
-})
-
-backToMainButton.addEventListener('click', function () {
-  switchPage([savedPostersPage, mainPosterPage])
-})
-
-showMain.addEventListener('click', function () {
-  switchPage([posterFormPage, mainPosterPage])
-})
-
-unmotivationalBackButton.addEventListener('click', function () {
-  switchPage([unmotivationalPage, mainPosterPage])
-})
+showFormButton.addEventListener('click', goToForm)
 
 unmotivationalButton.addEventListener('click', unmotivationalSetup)
+
+backToMainButton.addEventListener('click', goToMain)
+
+showMain.addEventListener('click', goToMain)
+
+unmotivationalBackButton.addEventListener('click', goToMain)
 
 userPosterForm.addEventListener('submit', userPoster)
 
@@ -306,10 +296,28 @@ function randomPoster() {
   return createPoster(imageURL, title, quote)
 }
 
-function switchPage(pages) {
-  for (const page in pages) {
-    pages[page].classList.toggle('hidden')
-  }
+function switchPage(page) {
+  page.classList.remove('hidden')
+}
+
+function goToMain(event) {
+  event.target.parentElement.classList.add('hidden')
+  switchPage(mainPosterPage)
+}
+
+function goToSaved(event) {
+  event.target.parentElement.classList.add('hidden')
+  switchPage(savedPostersPage)
+}
+
+function goToForm(event) {
+  event.target.parentElement.classList.add('hidden')
+  switchPage(posterFormPage)
+}
+
+function goToUnmotivational(event) {
+  event.target.parentElement.classList.add('hidden')
+  switchPage(unmotivationalPage)
 }
 
 function userPoster(event) {
@@ -320,6 +328,7 @@ function userPoster(event) {
   titles.push(userPosterTitle.value)
   quotes.push(userPosterQuote.value)
   switchPage([mainPosterPage, posterFormPage])
+  console.log('event: ', event)
 }
 
 function savePoster() {
@@ -338,7 +347,7 @@ function cleanData() {
   return unmotivationalPosters.map((posterData) => createPoster(posterData.img_url, posterData.name, posterData.description))
 }
 
-function unmotivationalSetup() {
+function unmotivationalSetup(event) {
   const posters = cleanData()
   for (const poster in posters) {
     const miniPosterHTML = `<div class="unmotivational-mini-poster", id=${posters[poster].id}>\
@@ -348,5 +357,5 @@ function unmotivationalSetup() {
     </div>`
     unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML)
   }
-  switchPage([unmotivationalPage, mainPosterPage])
+  goToUnmotivational(event)
 }
