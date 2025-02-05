@@ -2,6 +2,7 @@
 const posterImage = document.querySelector('.poster-img')
 const posterTitle = document.querySelector('.poster-title')
 const posterQuote = document.querySelector('.poster-quote')
+const savePosterButton = document.querySelector('.save-poster')
 const showRandomButton = document.querySelector('.show-random')
 const showSavedButton = document.querySelector('.show-saved')
 const showFormButton = document.querySelector('.show-form')
@@ -14,6 +15,7 @@ const showMain = document.querySelector('.show-main')
 const mainPosterPage = document.querySelector('.main-poster')
 const posterFormPage = document.querySelector('.poster-form')
 const savedPostersPage = document.querySelector('.saved-posters')
+const savedPostersGrid = document.querySelector('.saved-posters-grid')
 
 // we've provided you with some data to work with 👇
 // tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
@@ -141,6 +143,8 @@ showMain.addEventListener('click', function () {
 
 userPosterForm.addEventListener('submit', userPoster)
 
+savePosterButton.addEventListener('click', savePoster)
+
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
 function getRandomIndex(array) {
@@ -184,4 +188,16 @@ function userPoster(event) {
   titles.push(userPosterTitle.value)
   quotes.push(userPosterQuote.value)
   switchPage([mainPosterPage, posterFormPage])
+}
+
+function savePoster() {
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster)
+    const miniPosterHTML = `<div class="mini-poster", id=${currentPoster.id}>\
+    <img src="${currentPoster.imageURL}" />\
+    <h2>${currentPoster.title}</h2>\
+    <h4>${currentPoster.quote}</h4>\
+    </div>`
+    savedPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML)
+  }
 }
