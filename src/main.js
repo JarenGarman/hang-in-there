@@ -139,6 +139,8 @@ showMain.addEventListener('click', function () {
   switchPage([posterFormPage, mainPosterPage])
 })
 
+makePosterButton.addEventListener('click', userPoster)
+
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
 function getRandomIndex(array) {
