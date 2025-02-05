@@ -6,7 +6,9 @@ const savePosterButton = document.querySelector('.save-poster')
 const showRandomButton = document.querySelector('.show-random')
 const showSavedButton = document.querySelector('.show-saved')
 const showFormButton = document.querySelector('.show-form')
+const unmotivationalButton = document.querySelector('.show-unmotivational')
 const backToMainButton = document.querySelector('.back-to-main')
+const unmotivationalBackButton = document.querySelector('.unmotivational-back-to-main')
 const userPosterImage = document.querySelector('#poster-image-url')
 const userPosterTitle = document.querySelector('#poster-title')
 const userPosterQuote = document.querySelector('#poster-quote')
@@ -14,6 +16,7 @@ const userPosterForm = document.querySelector('form')
 const showMain = document.querySelector('.show-main')
 const mainPosterPage = document.querySelector('.main-poster')
 const posterFormPage = document.querySelector('.poster-form')
+const unmotivationalPage = document.querySelector('.unmotivational-posters')
 const savedPostersPage = document.querySelector('.saved-posters')
 const savedPostersGrid = document.querySelector('.saved-posters-grid')
 
@@ -139,6 +142,14 @@ backToMainButton.addEventListener('click', function () {
 
 showMain.addEventListener('click', function () {
   switchPage([posterFormPage, mainPosterPage])
+})
+
+unmotivationalBackButton.addEventListener('click', function () {
+  switchPage([unmotivationalPage, mainPosterPage])
+})
+
+unmotivationalButton.addEventListener('click', function () {
+  switchPage([unmotivationalPage, mainPosterPage])
 })
 
 userPosterForm.addEventListener('submit', userPoster)
