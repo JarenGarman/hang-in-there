@@ -1,15 +1,19 @@
 // query selector variables go here 👇
-let posterImage = document.querySelector('.poster-img')
-let posterTitle = document.querySelector('.poster-title')
-let posterQuote = document.querySelector('.poster-quote')
-let showRandomButton = document.querySelector('.show-random')
-let showSavedButton = document.querySelector('.show-saved')
-let showFormButton = document.querySelector('.show-form')
-let backToMainButton = document.querySelector('.back-to-main')
-let showMain = document.querySelector('.show-main')
-let mainPosterPage = document.querySelector('.main-poster')
-let posterFormPage = document.querySelector('.poster-form')
-let savedPostersPage = document.querySelector('.saved-posters')
+const posterImage = document.querySelector('.poster-img')
+const posterTitle = document.querySelector('.poster-title')
+const posterQuote = document.querySelector('.poster-quote')
+const showRandomButton = document.querySelector('.show-random')
+const showSavedButton = document.querySelector('.show-saved')
+const showFormButton = document.querySelector('.show-form')
+const backToMainButton = document.querySelector('.back-to-main')
+const userPosterImage = document.querySelector('#poster-image-url')
+const userPosterTitle = document.querySelector('#poster-title')
+const userPosterQuote = document.querySelector('#poster-quote')
+const userPosterForm = document.querySelector('form')
+const showMain = document.querySelector('.show-main')
+const mainPosterPage = document.querySelector('.main-poster')
+const posterFormPage = document.querySelector('.poster-form')
+const savedPostersPage = document.querySelector('.saved-posters')
 
 // we've provided you with some data to work with 👇
 // tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
@@ -120,20 +124,22 @@ showRandomButton.addEventListener('click', function () {
 })
 
 showSavedButton.addEventListener('click', function () {
-  switchPage(mainPosterPage, savedPostersPage)
+  switchPage([mainPosterPage, savedPostersPage])
 })
 
 showFormButton.addEventListener('click', function () {
-  switchPage(mainPosterPage, posterFormPage)
+  switchPage([mainPosterPage, posterFormPage])
 })
 
 backToMainButton.addEventListener('click', function () {
-  switchPage(savedPostersPage, mainPosterPage)
+  switchPage([savedPostersPage, mainPosterPage])
 })
 
 showMain.addEventListener('click', function () {
-  switchPage(posterFormPage, mainPosterPage)
+  switchPage([posterFormPage, mainPosterPage])
 })
+
+userPosterForm.addEventListener('submit', userPoster)
 
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
@@ -164,7 +170,18 @@ function randomPoster() {
   return createPoster(imageURL, title, quote)
 }
 
-function switchPage(currentPage, nextPage) {
-  currentPage.classList.add('hidden')
-  nextPage.classList.remove('hidden')
+function switchPage(pages) {
+  for (const page in pages) {
+    pages[page].classList.toggle('hidden')
+  }
+}
+
+function userPoster(event) {
+  event.preventDefault()
+  const newPoster = createPoster(userPosterImage.value, userPosterTitle.value, userPosterQuote.value)
+  updatePoster(newPoster)
+  images.push(userPosterImage.value)
+  titles.push(userPosterTitle.value)
+  quotes.push(userPosterQuote.value)
+  switchPage([mainPosterPage, posterFormPage])
 }
