@@ -362,10 +362,10 @@ function unmotivationalSetup(event) {
   goToUnmotivational(event)
 }
 
-function deletePoster(event) {
+function deletePoster() {
   const target = event.target
   if (!target.classList.contains('unmotivational-posters-grid')) {
-    const title = target.getElementsByTagName('h2')[0] ||= target.parentElement.getElementsByTagName('h2')[0]
+    const title = target.getElementsByTagName('h2')[0] || target.parentElement.getElementsByTagName('h2')[0]
     activeUnmotivationalPosters = activeUnmotivationalPosters.filter((poster) => !poster.title === title)
     if (target.classList.contains('mini-poster')) {
       target.remove()
