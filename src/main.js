@@ -330,7 +330,7 @@ function userPoster() {
   images.push(userPosterImage.value)
   titles.push(userPosterTitle.value)
   quotes.push(userPosterQuote.value)
-  switchPage(mainPosterPage)
+  goToMain()
 }
 
 function miniPosterHTML(poster) {
