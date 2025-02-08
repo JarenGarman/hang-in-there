@@ -42,7 +42,7 @@ let images = [
   "./assets/squirrel.jpg",
   "./assets/tiger.jpg",
   "./assets/turtle.jpg"
-];
+]
 let titles = [
   "determination",
   "success",
@@ -79,7 +79,7 @@ let titles = [
   "trust",
   "understanding",
   "wisdom"
-];
+]
 let quotes = [
   "Don’t downgrade your dream just to fit your reality, upgrade your conviction to match your destiny.",
   "You are braver than you believe, stronger than you seem and smarter than you think.",
@@ -119,7 +119,7 @@ let quotes = [
   "No matter what people tell you, words and ideas can change the world.",
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
-];
+]
 let unmotivationalPosters = [
   {
     name: "FAILURE",
@@ -241,9 +241,10 @@ let unmotivationalPosters = [
     vintage: false,
     img_url: "./assets/doubt.jpg",
   }
-];
-let savedPosters = [];
-let currentPoster;
+]
+let savedPosters = []
+let currentPoster
+let posterCounter = 0
 let activeUnmotivationalPosters = cleanData()
 updatePoster(randomPoster())
 
@@ -273,7 +274,7 @@ unmotivationalPostersGrid.addEventListener('dblclick', deletePoster)
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
 function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
+  return Math.floor(Math.random() * array.length)
 }
 
 function createPoster(imageURL, title, quote) {
