@@ -254,7 +254,7 @@ showSavedButton.addEventListener('click', goToSaved)
 
 showFormButton.addEventListener('click', goToForm)
 
-unmotivationalButton.addEventListener('click', unmotivationalSetup)
+unmotivationalButton.addEventListener('click', goToUnmotivational)
 
 backToMainButton.addEventListener('click', goToMain)
 
@@ -353,12 +353,9 @@ function cleanData() {
 }
 
 function unmotivationalSetup() {
-  if (unmotivationalPostersGrid.innerHTML === '') {
-    for (const poster in activeUnmotivationalPosters) {
-      unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(activeUnmotivationalPosters[poster]))
-    }
+  for (const poster in activeUnmotivationalPosters) {
+    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(activeUnmotivationalPosters[poster]))
   }
-  goToUnmotivational(event)
 }
 
 function deletePoster() {
@@ -370,3 +367,4 @@ function deletePoster() {
 }
 
 randomPoster()
+unmotivationalSetup()
