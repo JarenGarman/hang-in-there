@@ -1,28 +1,32 @@
-// query selector variables go here 👇
+// Query Selectors
 const posterImage = document.querySelector('.poster-img')
 const posterTitle = document.querySelector('.poster-title')
 const posterQuote = document.querySelector('.poster-quote')
+
 const savePosterButton = document.querySelector('.save-poster')
 const showRandomButton = document.querySelector('.show-random')
 const showSavedButton = document.querySelector('.show-saved')
 const showFormButton = document.querySelector('.show-form')
 const unmotivationalButton = document.querySelector('.show-unmotivational')
+
 const backToMainButton = document.querySelector('.back-to-main')
 const unmotivationalBackButton = document.querySelector('.unmotivational-back-to-main')
+const showMain = document.querySelector('.show-main')
+
+const userPosterForm = document.querySelector('form')
 const userPosterImage = document.querySelector('#poster-image-url')
 const userPosterTitle = document.querySelector('#poster-title')
 const userPosterQuote = document.querySelector('#poster-quote')
-const userPosterForm = document.querySelector('form')
-const showMain = document.querySelector('.show-main')
+
 const mainPosterPage = document.querySelector('.main-poster')
 const posterFormPage = document.querySelector('.poster-form')
 const unmotivationalPage = document.querySelector('.unmotivational-posters')
 const savedPostersPage = document.querySelector('.saved-posters')
+
 const savedPostersGrid = document.querySelector('.saved-posters-grid')
 const unmotivationalPostersGrid = document.querySelector('.unmotivational-posters-grid')
 
-// we've provided you with some data to work with 👇
-// tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
+// Data and Variables
 let images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -247,29 +251,21 @@ let currentPoster
 let posterCounter = 0
 let activeUnmotivationalPosters = cleanData()
 
-// event listeners go here 👇
-showRandomButton.addEventListener('click', randomPoster)
-
+// Event Listeners
+savePosterButton.addEventListener('click', savePoster)
 showSavedButton.addEventListener('click', goToSaved)
-
+showRandomButton.addEventListener('click', randomPoster)
 showFormButton.addEventListener('click', goToForm)
-
 unmotivationalButton.addEventListener('click', goToUnmotivational)
 
 backToMainButton.addEventListener('click', goToMain)
-
 showMain.addEventListener('click', goToMain)
-
 unmotivationalBackButton.addEventListener('click', goToMain)
 
 userPosterForm.addEventListener('submit', userPoster)
-
-savePosterButton.addEventListener('click', savePoster)
-
 unmotivationalPostersGrid.addEventListener('dblclick', deletePoster)
 
-// functions and event handlers go here 👇
-// (we've provided two to get you started)!
+// Functions and Event Handlers
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length)
 }
@@ -366,5 +362,6 @@ function deletePoster() {
   }
 }
 
+// Functions Called on Page Load
 randomPoster()
 unmotivationalSetup()
