@@ -42,7 +42,7 @@ let images = [
   "./assets/squirrel.jpg",
   "./assets/tiger.jpg",
   "./assets/turtle.jpg"
-];
+]
 let titles = [
   "determination",
   "success",
@@ -79,7 +79,7 @@ let titles = [
   "trust",
   "understanding",
   "wisdom"
-];
+]
 let quotes = [
   "Don’t downgrade your dream just to fit your reality, upgrade your conviction to match your destiny.",
   "You are braver than you believe, stronger than you seem and smarter than you think.",
@@ -119,7 +119,7 @@ let quotes = [
   "No matter what people tell you, words and ideas can change the world.",
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
-];
+]
 let unmotivationalPosters = [
   {
     name: "FAILURE",
@@ -241,22 +241,20 @@ let unmotivationalPosters = [
     vintage: false,
     img_url: "./assets/doubt.jpg",
   }
-];
-let savedPosters = [];
-let currentPoster;
+]
+let savedPosters = []
+let currentPoster
+let posterCounter = 0
 let activeUnmotivationalPosters = cleanData()
-updatePoster(randomPoster())
 
 // event listeners go here 👇
-showRandomButton.addEventListener('click', function () {
-  updatePoster(randomPoster())
-})
+showRandomButton.addEventListener('click', randomPoster)
 
 showSavedButton.addEventListener('click', goToSaved)
 
 showFormButton.addEventListener('click', goToForm)
 
-unmotivationalButton.addEventListener('click', unmotivationalSetup)
+unmotivationalButton.addEventListener('click', goToUnmotivational)
 
 backToMainButton.addEventListener('click', goToMain)
 
@@ -273,65 +271,66 @@ unmotivationalPostersGrid.addEventListener('dblclick', deletePoster)
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
 function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
+  return Math.floor(Math.random() * array.length)
 }
 
 function createPoster(imageURL, title, quote) {
-  return {
-    id: Date.now(),
+  const poster = {
+    id: posterCounter,
     imageURL,
     title,
     quote
   }
+  posterCounter++
+  return poster
 }
 
 function updatePoster(posterParams) {
   currentPoster = posterParams
-  posterImage.src = posterParams.imageURL
-  posterTitle.innerText = posterParams.title
-  posterQuote.innerText = posterParams.quote
+  posterImage.src = currentPoster.imageURL
+  posterTitle.innerText = currentPoster.title
+  posterQuote.innerText = currentPoster.quote
 }
 
 function randomPoster() {
   const imageURL = images[getRandomIndex(images)]
   const title = titles[getRandomIndex(titles)]
   const quote = quotes[getRandomIndex(quotes)]
-  return createPoster(imageURL, title, quote)
+  updatePoster(createPoster(imageURL, title, quote))
 }
 
 function switchPage(page) {
   page.classList.remove('hidden')
 }
 
-function goToMain(event) {
+function goToMain() {
   event.target.parentElement.classList.add('hidden')
   switchPage(mainPosterPage)
 }
 
-function goToSaved(event) {
+function goToSaved() {
   event.target.parentElement.classList.add('hidden')
   switchPage(savedPostersPage)
 }
 
-function goToForm(event) {
+function goToForm() {
   event.target.parentElement.classList.add('hidden')
   switchPage(posterFormPage)
 }
 
-function goToUnmotivational(event) {
+function goToUnmotivational() {
   event.target.parentElement.classList.add('hidden')
   switchPage(unmotivationalPage)
 }
 
-function userPoster(event) {
+function userPoster() {
   event.preventDefault()
   const newPoster = createPoster(userPosterImage.value, userPosterTitle.value, userPosterQuote.value)
   updatePoster(newPoster)
   images.push(userPosterImage.value)
   titles.push(userPosterTitle.value)
   quotes.push(userPosterQuote.value)
-  switchPage([mainPosterPage, posterFormPage])
-  console.log('event: ', event)
+  goToMain()
 }
 
 function miniPosterHTML(poster) {
@@ -353,24 +352,19 @@ function cleanData() {
   return unmotivationalPosters.map((posterData) => createPoster(posterData.img_url, posterData.name, posterData.description))
 }
 
-function unmotivationalSetup(event) {
-  if (unmotivationalPostersGrid.innerHTML === '') {
-    for (const poster in activeUnmotivationalPosters) {
-      unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(activeUnmotivationalPosters[poster]))
-    }
+function unmotivationalSetup() {
+  for (const poster in activeUnmotivationalPosters) {
+    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(activeUnmotivationalPosters[poster]))
   }
-  goToUnmotivational(event)
 }
 
 function deletePoster() {
-  const target = event.target
-  if (!target.classList.contains('unmotivational-posters-grid')) {
-    const title = target.getElementsByTagName('h2')[0] || target.parentElement.getElementsByTagName('h2')[0]
-    activeUnmotivationalPosters = activeUnmotivationalPosters.filter((poster) => !poster.title === title)
-    if (target.classList.contains('mini-poster')) {
-      target.remove()
-    } else {
-      target.parentElement.remove()
-    }
+  const target = event.target.closest('.mini-poster')
+  if (target) {
+    activeUnmotivationalPosters = activeUnmotivationalPosters.filter((poster) => !poster.id === target.id)
+    target.remove()
   }
 }
+
+randomPoster()
+unmotivationalSetup()
