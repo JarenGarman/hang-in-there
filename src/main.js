@@ -368,8 +368,7 @@ function unmotivationalSetup(event) {
 function deletePoster() {
   const target = event.target.closest('.mini-poster')
   if (target) {
-    const title = target.getElementsByTagName('h2')[0]
-    activeUnmotivationalPosters = activeUnmotivationalPosters.filter((poster) => !poster.title === title)
+    activeUnmotivationalPosters = activeUnmotivationalPosters.filter((poster) => !poster.id === target.id)
     target.remove()
   }
 }
