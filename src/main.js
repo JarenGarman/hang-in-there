@@ -246,12 +246,9 @@ let savedPosters = []
 let currentPoster
 let posterCounter = 0
 let activeUnmotivationalPosters = cleanData()
-updatePoster(randomPoster())
 
 // event listeners go here 👇
-showRandomButton.addEventListener('click', function () {
-  updatePoster(randomPoster())
-})
+showRandomButton.addEventListener('click', randomPoster)
 
 showSavedButton.addEventListener('click', goToSaved)
 
@@ -299,7 +296,7 @@ function randomPoster() {
   const imageURL = images[getRandomIndex(images)]
   const title = titles[getRandomIndex(titles)]
   const quote = quotes[getRandomIndex(quotes)]
-  return createPoster(imageURL, title, quote)
+  updatePoster(createPoster(imageURL, title, quote))
 }
 
 function switchPage(page) {
@@ -371,3 +368,5 @@ function deletePoster() {
     target.remove()
   }
 }
+
+randomPoster()
