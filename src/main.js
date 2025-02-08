@@ -278,12 +278,14 @@ function getRandomIndex(array) {
 }
 
 function createPoster(imageURL, title, quote) {
-  return {
-    id: Date.now(),
+  const poster = {
+    id: posterCounter,
     imageURL,
     title,
     quote
   }
+  posterCounter++
+  return poster
 }
 
 function updatePoster(posterParams) {
