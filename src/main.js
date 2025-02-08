@@ -363,14 +363,10 @@ function unmotivationalSetup(event) {
 }
 
 function deletePoster() {
-  const target = event.target
-  if (!target.classList.contains('unmotivational-posters-grid')) {
-    const title = target.getElementsByTagName('h2')[0] || target.parentElement.getElementsByTagName('h2')[0]
+  const target = event.target.closest('.mini-poster')
+  if (target) {
+    const title = target.getElementsByTagName('h2')[0]
     activeUnmotivationalPosters = activeUnmotivationalPosters.filter((poster) => !poster.title === title)
-    if (target.classList.contains('mini-poster')) {
-      target.remove()
-    } else {
-      target.parentElement.remove()
-    }
+    target.remove()
   }
 }
