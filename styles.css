@@ -170,3 +170,8 @@ button:hover {
 .unmotivational-posters-grid > .mini-poster h2 {
   color: black;
 }
+
+.unmotivational-back-to-main {
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
