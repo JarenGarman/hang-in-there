@@ -345,7 +345,11 @@ function savePoster() {
 }
 
 function cleanData() {
-  return unmotivationalPosters.map((posterData) => createPoster(posterData.img_url, posterData.name, posterData.description))
+  return unmotivationalPosters.reduce((posters, posterData) => {
+    const poster = createPoster(posterData.img_url, posterData.name, posterData.description)
+    posters[poster.id] = poster
+    return posters
+  }, {})
 }
 
 function unmotivationalSetup() {
@@ -357,9 +361,7 @@ function unmotivationalSetup() {
 function deletePoster() {
   const target = event.target.closest('.mini-poster')
   if (target) {
-    activeUnmotivationalPosters = activeUnmotivationalPosters.filter((poster) => {
-      return !poster.id === target.id
-    })
+    delete activeUnmotivationalPosters[target.id]
     target.remove()
   }
 }
