@@ -27,7 +27,7 @@ const savedPostersGrid = document.querySelector('.saved-posters-grid')
 const unmotivationalPostersGrid = document.querySelector('.unmotivational-posters-grid')
 
 // Data and Variables
-let images = [
+const images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
   "./assets/butterfly.jpg",
@@ -47,7 +47,7 @@ let images = [
   "./assets/tiger.jpg",
   "./assets/turtle.jpg"
 ]
-let titles = [
+const titles = [
   "determination",
   "success",
   "inspiration",
@@ -84,7 +84,7 @@ let titles = [
   "understanding",
   "wisdom"
 ]
-let quotes = [
+const quotes = [
   "Don’t downgrade your dream just to fit your reality, upgrade your conviction to match your destiny.",
   "You are braver than you believe, stronger than you seem and smarter than you think.",
   "You are confined only by the walls you build yourself.",
@@ -124,7 +124,7 @@ let quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ]
-let unmotivationalPosters = [
+const unmotivationalPosters = [
   {
     name: "FAILURE",
     description: "Why bother trying? It's probably not worth it.",
@@ -246,10 +246,10 @@ let unmotivationalPosters = [
     img_url: "./assets/doubt.jpg",
   }
 ]
-let savedPosters = []
+const savedPosters = []
 let currentPoster
 let posterCounter = 0
-let activeUnmotivationalPosters = cleanData()
+const activeUnmotivationalPosters = cleanData()
 
 // Event Listeners
 savePosterButton.addEventListener('click', savePoster)
