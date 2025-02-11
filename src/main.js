@@ -353,9 +353,9 @@ function cleanData() {
 }
 
 function unmotivationalSetup() {
-  for (const poster in activeUnmotivationalPosters) {
-    unmotivationalPostersGrid.insertAdjacentHTML('beforeend', miniPosterHTML(activeUnmotivationalPosters[poster]))
-  }
+  Object.values(activeUnmotivationalPosters).forEach((poster) => {
+    unmotivationalPostersGrid.innerHTML += miniPosterHTML(poster)
+  })
 }
 
 function deletePoster() {
