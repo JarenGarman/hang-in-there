@@ -322,11 +322,11 @@ function goToUnmotivational() {
 function userPoster() {
   event.preventDefault()
   const newPoster = createPoster(userPosterImage.value, userPosterTitle.value, userPosterQuote.value)
-  updatePoster(newPoster)
   images.push(userPosterImage.value)
   titles.push(userPosterTitle.value)
   quotes.push(userPosterQuote.value)
   goToMain()
+  updatePoster(newPoster)
 }
 
 function miniPosterHTML(poster) {
