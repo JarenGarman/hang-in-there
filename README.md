@@ -1,46 +1,28 @@
 # Hang In There
 
-A boilerplate repo. 
+## Abstract
 
-## Set Up
+The main functionality of this website is to create and display motivational posters. The user can create randomized posters, create their own posters, save and view saved posters, and view and delete unmotivational posters.
 
-1. Fork this repository
-2. Clone down your new, forked repo
-3. `cd` into the repository
-4. Open it in your text editor
-5. Add the instructors as collaborators on the repository
+## Preview of App
 
-Project spec & rubric can be found [here](https://curriculum.turing.edu/module2/projects/hang_in_there/)
+![Unmotivational Posters Page](readme-imgs/unmotiv-posters.png)
 
-To view your project:
+## Context
 
-1. In your terminal, navigate to your project repo
-2. Run the command `open index.html`
-  
-______________________________________________________  
-# README Template  
-Before turning this project in, erase this line and everything above it and fill in the info below.  
-______________________________________________________  
+This is the first project of Mod 2 of Turing, focusing on frontend web development. We have been given about 10 days to work on this project.
 
-# Hang in There  
+## Contributors
 
-### Abstract:
-[//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+### Jaren Garman
 
-### Installation Instructions:
-[//]: <> (What steps does a person have to take to get your app cloned down and running?)
+- [Github](https://github.com/JarenGarman)
+- [LinkedIn](https://www.linkedin.com/in/jarengarman/)
 
-### Preview of App:
-[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off. gifs preferred!)
+## Learning Goals
 
-### Context:
-[//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+We mostly learned the basics of HTML, CSS and Javascript and how they all work together to build a webpage. We made us of Javascript's querySelectors and eventListeners, as well as CSS's flex-box.
 
-### Contributors:
-[//]: <> (Who worked on this application? Link to your GitHub. Consider also providing LinkedIn link)
+## Wins + Challenges
 
-### Learning Goals:
-[//]: <> (What were the learning goals of this project? What tech did you work with?)
-
-### Wins + Challenges:
-[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+I feel really good about working with flex-box and manipulating elements in the DOM with javascript. I had a bit of trouble with the unmotivational posters duplicating every time the user opened the page but was able to nail down the problem fairly quickly.
