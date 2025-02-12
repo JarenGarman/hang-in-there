@@ -6,7 +6,7 @@ The main functionality of this website is to create and display motivational pos
 
 ## Preview of App
 
-[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off. gifs preferred!)
+![Unmotivational Posters Page](readme-imgs/unmotiv-posters.png)
 
 ## Context
 
