@@ -21,7 +21,7 @@ This is the first project of Mod 2 of Turing, focusing on frontend web developme
 
 ## Learning Goals
 
-[//]: <> (What were the learning goals of this project? What tech did you work with?)
+We mostly learned the basics of HTML, CSS and Javascript and how they all work together to build a webpage. We made us of Javascript's querySelectors and eventListeners, as well as CSS's flex-box.
 
 ## Wins + Challenges
 
