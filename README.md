@@ -25,4 +25,4 @@ We mostly learned the basics of HTML, CSS and Javascript and how they all work t
 
 ## Wins + Challenges
 
-[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+I feel really good about working with flex-box and manipulating elements in the DOM with javascript. I had a bit of trouble with the unmotivational posters duplicating every time the user opened the page but was able to nail down the problem fairly quickly.
