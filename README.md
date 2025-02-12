@@ -4,10 +4,6 @@
 
 The main functionality of this website is to create and display motivational posters. The user can create randomized posters, create their own posters, save and view saved posters, and view and delete unmotivational posters.
 
-## Installation Instructions
-
-[//]: <> (What steps does a person have to take to get your app cloned down and running?)
-
 ## Preview of App
 
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off. gifs preferred!)
