@@ -14,7 +14,10 @@ The main functionality of this website is to create and display motivational pos
 
 ## Contributors
 
-[//]: <> (Who worked on this application? Link to your GitHub. Consider also providing LinkedIn link)
+### Jaren Garman
+
+- [Github](https://github.com/JarenGarman)
+- [LinkedIn](https://www.linkedin.com/in/jarengarman/)
 
 ## Learning Goals
 
