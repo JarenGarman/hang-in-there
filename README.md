@@ -10,7 +10,7 @@ The main functionality of this website is to create and display motivational pos
 
 ## Context
 
-[//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+This is the first project of Mod 2 of Turing, focusing on frontend web development. We have been given about 10 days to work on this project.
 
 ## Contributors
 
